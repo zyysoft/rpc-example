@@ -24,7 +24,7 @@ public class RemoteConfig {
 		return httpInvokerRequestExecutor;
 	}
     
-	@Bean(name="rpcService")
+	@Bean
 	public RpcService remoteRpcService(){
 		HttpInvokerProxyFactoryBean bean = new HttpInvokerProxyFactoryBean();
 		bean.setServiceInterface(RpcService.class);
