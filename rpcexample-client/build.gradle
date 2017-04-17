@@ -30,8 +30,9 @@ test {
 }
 
 dependencies {
-	//compile project(':rpcexample-service')
-	compile 'io.githup.rpc:rpc-api:1.0-SNAPSHOT'	
+	compile project(':rpcexample-api')
+	compile 'com.geping.rec:bybe-rec-api:1.0-SNAPSHOT'  
+	//compile 'io.githup.rpc:rpc-api:1.0-SNAPSHOT'	
 }
 uploadArchives {
     repositories {

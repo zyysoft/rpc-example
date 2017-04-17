@@ -7,6 +7,8 @@ import org.springframework.core.env.Environment;
 import org.springframework.remoting.httpinvoker.HttpComponentsHttpInvokerRequestExecutor;
 import org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean;
 
+import com.geping.rec.service.RecService;
+
 import io.githup.rpc.service.service.RpcService;
 
 
@@ -32,4 +34,15 @@ public class RemoteConfig {
 		bean.afterPropertiesSet();
 		return (RpcService) bean.getObject();
 	}
+	
+	
+	@Bean
+	public RecService remoteRecService(){
+		HttpInvokerProxyFactoryBean bean = new HttpInvokerProxyFactoryBean();
+		bean.setServiceInterface(RecService.class);
+		bean.setServiceUrl(env.getProperty("remote.recService"));
+		bean.afterPropertiesSet();
+		return (RecService) bean.getObject();
+	}
+	
 }
